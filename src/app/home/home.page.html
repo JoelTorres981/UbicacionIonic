@@ -1,31 +1,33 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Mi Ubicación GPS (Standalone)</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title>Gestión de Ubicación</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-card *ngIf="latitude() !== null && longitude() !== null">
+  
+  <ion-card *ngIf="latitude() !== null">
     <ion-card-header>
-      <ion-card-title>Coordenadas actuales</ion-card-title>
+      <ion-card-title>Posición Actual</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <p><strong>Latitud:</strong> {{ latitude() }}</p>
-      <p><strong>Longitud:</strong> {{ longitude() }}</p>
+      <p>Lat: {{ latitude() }}</p>
+      <p>Lng: {{ longitude() }}</p>
     </ion-card-content>
   </ion-card>
 
-  <p *ngIf="errorMsg()">{{ errorMsg() }}</p>
-
-  <ion-button expand="block" (click)="obtenerUbicacionActual()">
-    Obtener ubicación actual
+  <ion-button expand="block" color="tertiary" (click)="soloRegistrarEnFirebase()">
+    <ion-icon name="cloud-upload-outline" slot="start"></ion-icon>
+    Guardar en Base de Datos
   </ion-button>
 
-  <ion-button expand="block" (click)="iniciarSeguimiento()" [disabled]="watchId !== null">
-    Iniciar seguimiento
+  <ion-button expand="block" color="success" (click)="soloAbrirEnMaps()" class="ion-margin-top">
+    <ion-icon name="map-outline" slot="start"></ion-icon>
+    Ver en Google Maps
   </ion-button>
 
-  <ion-button expand="block" color="medium" (click)="detenerSeguimiento()" [disabled]="watchId === null">
-    Detener seguimiento
-  </ion-button>
+  <ion-note *ngIf="errorMsg()" color="danger" class="ion-margin-top ion-text-center">
+    {{ errorMsg() }}
+  </ion-note>
+
 </ion-content>
