@@ -37,15 +37,15 @@ on historial_ubicaciones
 for insert 
 to public 
 with check (true);
+```
 
 2. Instala las dependencias necesarias en el proyecto de Ionic:
-
-Bash
+```bash
 npm install @supabase/supabase-js
 npm install --save-dev @types/node
+```
 
-3. Define las credenciales de Supabase en tus archivos de entorno
- (src/environments/environment.ts y environment.prod.ts).
+3. Define las credenciales de Supabase en tus archivos de entorno (`src/environments/environment.ts` y `environment.prod.ts`).
 
 ### 2. Firebase & Firestore
 
@@ -58,11 +58,11 @@ Configuración para la integración de los servicios de Firebase:
 3. Pega las credenciales obtenidas en tus archivos de entorno environment.ts y environment.prod.ts.
 
 4. Instala las librerías oficiales en tu proyecto:
+```bash
+npm install firebase @angular/fire
+```
 
-npm install firebase
-npm install @angular/fire
-
-5. Inicializa Firebase y Firestore dentro del archivo de configuración principal de la app: src/app/app.config.ts.
+5. Inicializa Firebase y Firestore dentro del archivo de configuración principal de la app: `src/app/app.config.ts`.
 
 ### 3. Desarrollo e Implementación
 
@@ -82,13 +82,12 @@ La lógica de la aplicación se distribuye en los siguientes módulos y componen
 
 #### Plugins Adicionales
 Para mejorar la navegación externa y abrir enlaces de manera nativa dentro de la aplicación, se instaló el plugin de Capacitor Browser:
-
+```bash
 npm install @capacitor/browser
+```
 
-Capturas de Pantalla
+## 📸 Capturas de Pantalla
 
-#### Firebase
-![Firebase](./assets/capturas/Firebase.png)
-
-#### Supabase
-![Supabase](./assets/capturas/Supabase.png)
+| Registro en Firebase | Registro en Supabase |
+|:---:|:---:|
+| ![Firebase](./assets/capturas/Firebase.png) | ![Supabase](./assets/capturas/Supabase.png) |
