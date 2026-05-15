@@ -1,7 +1,7 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { 
   IonButton, IonCard, IonCardContent, IonCardHeader, IonCardTitle, 
-  IonContent, IonHeader, IonTitle, IonToolbar, IonIcon, IonNote, IonLabel,
+  IonContent, IonHeader, IonTitle, IonToolbar, IonIcon, IonNote,
   ToastController
 } from '@ionic/angular/standalone';
 import { NgIf } from '@angular/common';
@@ -16,7 +16,7 @@ import { cloudUploadOutline, mapOutline, checkmarkCircleOutline } from 'ionicons
   imports: [
     IonHeader, IonToolbar, IonTitle, IonContent,
     IonCard, IonCardHeader, IonCardTitle, IonCardContent,
-    IonButton, IonIcon, IonNote, IonLabel, NgIf
+    IonButton, IonIcon, IonNote, NgIf
   ],
   templateUrl: './home.page.html'
 })
@@ -63,6 +63,18 @@ export class HomePage implements OnInit {
     } catch (e) {
       this.errorMsg.set('Error al guardar en la nube');
       await this.mostrarMensaje('Hubo un error al guardar', 'danger');
+    }
+  }
+
+  // Acción del Botón: Guardar en Supabase
+  async soloRegistrarEnSupabase() {
+    try {
+      await this.mostrarMensaje('Guardando ubicación en Supabase...', 'secondary');
+      await this.loc.guardarEnSupabase('usuario_demo');
+      await this.mostrarMensaje('¡Ubicación guardada en Supabase con éxito!', 'success');
+    } catch (e) {
+      this.errorMsg.set('Error al guardar en Supabase');
+      await this.mostrarMensaje('Hubo un error al guardar en Supabase', 'danger');
     }
   }
 
